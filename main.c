@@ -15,17 +15,17 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	open_file(argv[1]);
-	free_nodes();
+	open(argv[1]);
+	_free();
 	return (0);
 }
 
 /**
- * create_node - Creates a node.
+ * create - Creates a node.
  * @n: Number to go inside the node.
  * Return: a pointer to the node. Otherwise NULL.
  */
-stack_t *create_node(int n)
+stack_t *create(int n)
 {
 	stack_t *node;
 
@@ -39,10 +39,10 @@ stack_t *create_node(int n)
 }
 
 /**
- * free_nodes - Frees nodes in the stack.
+ * _free - Frees nodes in the stack.
  * Return: nothing
  */
-void free_nodes(void)
+void _free(void)
 {
 	stack_t *x;
 

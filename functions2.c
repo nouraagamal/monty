@@ -49,7 +49,7 @@ void _add(stack_t **stack, unsigned int line_number)
 	(*stack) = (*stack)->next;
 	s = (*stack)->n + (*stack)->prev->n;
 	(*stack)->n = s;
-	free((*stack)->prev);
+	_free((*stack)->prev);
 	(*stack)->prev = NULL;
 }
 
@@ -68,7 +68,7 @@ void _sub(stack_t **stack, unsigned int line_number)
 	(*stack) = (*stack)->next;
 	s = (*stack)->n - (*stack)->prev->n;
 	(*stack)->n = s;
-	free((*stack)->prev);
+	_free((*stack)->prev);
 	(*stack)->prev = NULL;
 }
 
@@ -89,6 +89,6 @@ void _div(stack_t **stack, unsigned int line_number)
 	(*stack) = (*stack)->next;
 	s = (*stack)->n / (*stack)->prev->n;
 	(*stack)->n = s;
-	free((*stack)->prev);
+	_free((*stack)->prev);
 	(*stack)->prev = NULL;
 }

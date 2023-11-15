@@ -28,7 +28,7 @@ void read(FILE *fd)
 
 	for (line_number = 1; getline(&buffer, &len, fd) != -1; line_number++)
 		format = parse(buffer, line_number, format);
-	free(buffer);
+	_free(buffer);
 }
 
 /**
@@ -77,9 +77,9 @@ void find(char *opcode, char *value, int ln, int format)
 		{"push", add_to_stack},
 		{"pall", print_stack},
 		{"pint", print_top},
-		{"pop", pop_top},
+		{"pop", pop},
 		{"nop", nop},
-		{"swap", swap_nodes},
+		{"swap", _swap},
 		{"add", _add},
 		{"sub", _sub},
 		{"div", _div},
@@ -87,8 +87,8 @@ void find(char *opcode, char *value, int ln, int format)
 		{"mod", _mod},
 		{"pchar", print_char},
 		{"pstr", print_str},
-		{"rotl", rotl},
-		{"rotr", rotr},
+		{"rotl", rotateleft},
+		{"rotr", rotateright},
 		{NULL, NULL}
 	};
 

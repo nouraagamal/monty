@@ -43,7 +43,7 @@ typedef void (*op_func)(stack_t **, unsigned int);
 
 void open(char *file_name);
 int parse(char *buffer, int line_number, int format);
-void read(FILE *);
+void _read(FILE *);
 int length(FILE *);
 void find(char *, char *, int, int);
 
