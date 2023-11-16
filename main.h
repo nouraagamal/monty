@@ -49,12 +49,12 @@ void find(char *, char *, int, int);
 
 stack_t *create(int n);
 void _free(void);
-void print_stack(stack_t **, unsigned int);
-void add_to_stack(stack_t **, unsigned int);
+void printstack(stack_t **, unsigned int);
+void addstack(stack_t **, unsigned int);
 void add_to_queue(stack_t **, unsigned int);
 void call(op_func, char *, char *, int, int);
 
-void print_top(stack_t **, unsigned int);
+void printtop(stack_t **, unsigned int);
 void pop(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
 void _swap(stack_t **, unsigned int);
@@ -65,12 +65,12 @@ void _div(stack_t **, unsigned int);
 void _mul(stack_t **, unsigned int);
 void _mod(stack_t **, unsigned int);
 
-void print_char(stack_t **, unsigned int);
-void print_str(stack_t **, unsigned int);
+void printchar(stack_t **, unsigned int);
+void printstr(stack_t **, unsigned int);
 void rotateleft(stack_t **, unsigned int);
 
 void err(int error_code, ...);
-void more_err(int error_code, ...);
-void string_err(int error_code, ...);
+void moreerr(int error_code, ...);
+void stringerr(int error_code, ...);
 void rotateright(stack_t **, unsigned int);
 #endif

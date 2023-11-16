@@ -1,30 +1,30 @@
 #include "main.h"
 
 /**
- * print_char - Prints the Ascii value.
+ * printchar - Prints the Ascii value.
  * @stack: Pointer to a pointer pointing to top node of the stack.
  * @line_number: Interger representing the line number of of the opcode.
  * Return: nothing
  */
-void print_char(stack_t **stack, unsigned int line_number)
+void printchar(stack_t **stack, unsigned int line_number)
 {
 	int asc;
 
 	if (stack == NULL || *stack == NULL)
-		string_err(11, line_number);
+		stringerr(11, line_number);
 	asc = (*stack)->n;
 	if (asc < 0 || asc > 127)
-		string_err(10, line_number);
+		stringerr(10, line_number);
 	printf("%c\n", asc);
 }
 
 /**
- * print_str - Prints a string.
+ * printstr - Prints a string.
  * @stack: Pointer to a pointer pointing to top node of the stack.
  * @ln: Interger representing the line number of of the opcode.
  * Return: nothing
  */
-void print_str(stack_t **stack, __attribute__((unused))unsigned int ln)
+void printstr(stack_t **stack, __attribute__((unused))unsigned int ln)
 {
 	int asc;
 	stack_t *x;

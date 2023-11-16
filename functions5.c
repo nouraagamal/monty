@@ -74,9 +74,9 @@ void find(char *opcode, char *value, int ln, int format)
 	int fl;
 
 	instruction_t func_list[] = {
-		{"push", add_to_stack},
-		{"pall", print_stack},
-		{"pint", print_top},
+		{"push", addstack},
+		{"pall", printstack},
+		{"pint", printtop},
 		{"pop", pop},
 		{"nop", nop},
 		{"swap", _swap},
@@ -85,8 +85,8 @@ void find(char *opcode, char *value, int ln, int format)
 		{"div", _div},
 		{"mul", _mul},
 		{"mod", _mod},
-		{"pchar", print_char},
-		{"pstr", print_str},
+		{"pchar", printchar},
+		{"pstr", printstr},
 		{"rotl", rotateleft},
 		{"rotr", rotateright},
 		{NULL, NULL}

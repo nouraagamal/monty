@@ -11,7 +11,7 @@ void _mul(stack_t **stack, unsigned int line_number)
 	int s;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-		more_err(8, line_number, "mul");
+		moreerr(8, line_number, "mul");
 	(*stack) = (*stack)->next;
 	s = (*stack)->n * (*stack)->prev->n;
 	(*stack)->n = s;
@@ -30,9 +30,9 @@ void _mod(stack_t **stack, unsigned int line_number)
 	int s;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-		more_err(8, line_number, "mod");
+		moreerr(8, line_number, "mod");
 	if ((*stack)->n == 0)
-		more_err(9, line_number);
+		moreerr(9, line_number);
 	(*stack) = (*stack)->next;
 	s = (*stack)->n % (*stack)->prev->n;
 	(*stack)->n = s;
@@ -80,11 +80,11 @@ void err(int error_code, ...)
 }
 
 /**
- * more_err - handles errors.
+ * moreerr - handles errors.
  * @error_code: The error codes.
  * Return: nothing
  */
-void more_err(int error_code, ...)
+void moreerr(int error_code, ...)
 {
 	va_list ag;
 	char *op;
@@ -118,11 +118,11 @@ void more_err(int error_code, ...)
 }
 
 /**
- * string_err - handles errors.
+ * stringerr - handles errors.
  * @error_code: The error codes.
  * Return: nothing
  */
-void string_err(int error_code, ...)
+void stringerr(int error_code, ...)
 {
 	va_list ag;
 	int n;
