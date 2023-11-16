@@ -11,16 +11,16 @@ void open(char *file_name)
 
 	if (file_name == NULL || file == NULL)
 		err(2, file_name);
-	read(file);
+	_read(file);
 	fclose(file);
 }
 
 /**
- * read - reads a file
+ * _read - reads a file
  * @fd: pointer to file descriptor
  * Return: nothing
  */
-void read(FILE *fd)
+void _read(FILE *fd)
 {
 	int line_number, format = 0;
 	char *buffer = NULL;
@@ -28,7 +28,7 @@ void read(FILE *fd)
 
 	for (line_number = 1; getline(&buffer, &len, fd) != -1; line_number++)
 		format = parse(buffer, line_number, format);
-	_free(buffer);
+	free(buffer);
 }
 
 /**

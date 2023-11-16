@@ -15,7 +15,7 @@ void _mul(stack_t **stack, unsigned int line_number)
 	(*stack) = (*stack)->next;
 	s = (*stack)->n * (*stack)->prev->n;
 	(*stack)->n = s;
-	_free((*stack)->prev);
+	free((*stack)->prev);
 	(*stack)->prev = NULL;
 }
 
@@ -36,6 +36,6 @@ void _mod(stack_t **stack, unsigned int line_number)
 	(*stack) = (*stack)->next;
 	s = (*stack)->n % (*stack)->prev->n;
 	(*stack)->n = s;
-	_free((*stack)->prev);
+	free((*stack)->prev);
 	(*stack)->prev = NULL;
 }
