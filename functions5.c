@@ -71,7 +71,7 @@ int parse(char *buffer, int line_number, int format)
 void find(char *opcode, char *value, int ln, int format)
 {
 	int i;
-	int f;
+	int fl;
 
 	instruction_t func_list[] = {
 		{"push", add_to_stack},
@@ -94,15 +94,15 @@ void find(char *opcode, char *value, int ln, int format)
 
 	if (opcode[0] == '#')
 		return;
-	for (f = 1, i = 0; func_list[i].opcode != NULL; i++)
+	for (fl = 1, i = 0; func_list[i].opcode != NULL; i++)
 	{
 		if (strcmp(opcode, func_list[i].opcode) == 0)
 		{
 			call(func_list[i].f, opcode, value, ln, format);
-			f = 0;
+			fl = 0;
 		}
 	}
-	if (f == 1)
+	if (fl == 1)
 		err(3, ln, opcode);
 }
 
@@ -119,16 +119,16 @@ void find(char *opcode, char *value, int ln, int format)
 void call(op_func func, char *op, char *val, int ln, int format)
 {
 	stack_t *node;
-	int f;
+	int fl;
 	int i;
 
-	f = 1;
+	fl = 1;
 	if (strcmp(op, "push") == 0)
 	{
 		if (val != NULL && val[0] == '-')
 		{
 			val = val + 1;
-			f = -1;
+			fl = -1;
 		}
 		if (val == NULL)
 			err(5, ln);
@@ -137,7 +137,7 @@ void call(op_func func, char *op, char *val, int ln, int format)
 			if (isdigit(val[i]) == 0)
 				err(5, ln);
 		}
-		node = create(atoi(val) * f);
+		node = create(atoi(val) * fl);
 		if (format == 0)
 			func(&node, ln);
 		if (format == 1)
